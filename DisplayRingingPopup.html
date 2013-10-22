@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Important: This file is have to be hosted on a web server (e.g. Apache,IIS etc.) -->
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/ui-darkness/jquery-ui.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://localhost:7777/WebphoneAPI"></script>
+    <script type="text/javascript">
+
+	//////// Use your settings //////////
+	var serverAddress = "localhost";
+	var securityToken = "vQTJzve0J0mYsnvWjnnoUA";
+	var numberToSubscribe = "1001";
+	////////////////////////////////////
+
+	$( document ).ready(function() {
+		OzWebClient.onConnectionStateChanged(connectionStateChanged);
+		OzWebClient.connect(serverAddress, securityToken);
+	});
+
+	function connectionStateChanged(info) {
+		console.log(info.State);
+		if (info.State == ConnectionState.ACCESS_GRANTED){
+			OzWebClient.onSessionCreated (sessionCreated);
+			OzWebClient.onSessionClosed (sessionClosed);
+		}
+		else if (info.State == ConnectionState.ACCESS_DENIED)
+			console.log("Please check the login details of the Webphone Extension!");
+		else
+			console.log("Please check the availability of the PBX!");
+	}
+	
+	function sessionCreated(session) {
+		session.onSessionStateChanged(sessionStateChanged);
+	}
+	
+	function sessionClosed(session) {
+		closePopUp();
+	}
+	
+	function sessionStateChanged(session, sessionState ) {
+		if (session.caller == numberToSubscribe || session.callee == numberToSubscribe){
+			showPopUp(session.source, session.destination, session.direction, session.sessionState);
+		}
+	}
+	
+	//Close the Pop-up if is exist
+	function closePopUp(){
+		if ($("#NoficationPopup"))
+			$("#NoficationPopup").dialog("destroy").remove();
+	}
+	
+	//Show or modify the Pop-up
+	function showPopUp(caller, callee, direction, state){
+		if ($("#NoficationPopup").length > 0){
+			$("#lbCaller").html('Caller: ' + state);
+			$("#lbCallee").html('Callee: ' + callee);
+			$("#lbDirection").html('Direction: ' + direction);
+			$("#lbState").html('State: ' + state);
+		}
+		else {
+			$('<div id="NoficationPopup" title=\"' + direction + '\">' +
+					'<div align=left>' +
+						'<label id="lbCaller">Caller: '+caller+'</label> <BR />'  +
+						'<label id="lbCallee">Callee: '+callee+'</label> <BR />' +
+						'<label id="lbDirection">Direction: '+direction+'</label> <BR />' +
+						'<label id="lbState">State: '+state+'</label> <BR />' +
+					'</div> ' +
+			  '</div>')
+			  .dialog({
+					resizable: false, position: [0,0], minWidth: 250, minHeight: 100,
+					close: function () {
+						$(this).dialog("destroy").remove();
+				}});
+		}
+	}
+
+    </script>
+</head>
+<body>
+	
+</body>
+</html>
