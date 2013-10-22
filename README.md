@@ -4,7 +4,7 @@ How to link a VoIP phone to a website using Ozeki JavaScript API
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
 
-_More info at [http://www.ozekiphone.com www.ozekiphone.com]_ 
+_More info at http://www.ozekiphone.com_ 
 
 For this purpose, you only have to execute the following steps:
 
@@ -61,7 +61,7 @@ http://ozekixepbx.ip:7780/?Command=GenerateSecurityToken&AuthXml=%3c%3fxml+versi
 ```
 * Code example 2 * - Url encoded request
 
-On the summary page [http://www.ozekiphone.com/voip-http-commands-231.html below] you can get further information about the HTTP API and the commands of it.
+On the summary page (http://www.ozekiphone.com/voip-http-commands-231.html) you can get further information about the HTTP API and the commands of it.
 
 ===Option 2===
 The other method for getting the needed Security Token is that you login to the PBX and generate the token on your own with the aid of HTTP API Tester.
