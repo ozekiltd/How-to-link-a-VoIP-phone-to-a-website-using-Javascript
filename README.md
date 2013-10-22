@@ -4,7 +4,7 @@ How to link a VoIP phone to a website using Ozeki JavaScript API
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
 
-_More info at http://www.ozekiphone.com_ 
+_More info at http://www.ozekiphone.com_
 
 For this purpose, you only have to execute the following steps:
 
@@ -12,7 +12,7 @@ For this purpose, you only have to execute the following steps:
 
 **Step 2:** Connect to Ozeki Phone System XE through JavaScript API
 
-**Step 3:** Subscribe for the sessionCreated_ and _sessionStateChanged_ event 
+**Step 3:** Subscribe for the _sessionCreated_ and _sessionStateChanged_ event 
 
 **Step 4:** When the _sessionStateChanged_ event is triggered, show a Popup with the details of the call
 
