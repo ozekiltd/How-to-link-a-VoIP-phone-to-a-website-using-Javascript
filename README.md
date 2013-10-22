@@ -8,7 +8,7 @@ _More info at http://www.ozekiphone.com_
 
 For this purpose, you only have to execute the following steps:
 
-* Step 1: * Generate Security Token for the authentication
+**Step 1:** Generate Security Token for the authentication
 
 * Step 2: * Connect to Ozeki Phone System XE through JavaScript API
 
