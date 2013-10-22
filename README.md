@@ -1,4 +1,4 @@
-###How to link a VoIP phone to a website using Ozeki JavaScript API###
+###How to link a VoIP phone to a website using Ozeki Phone System XE JavaScript API###
 
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
