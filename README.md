@@ -204,8 +204,7 @@ We can see that when the Popup is not in the foreground, we create it, having up
 
 **Figure 3** - An example popup, when 1001 calls the 5000
 
-
-**Dig deeper!**
+**Dig deeper!** <BR />
 **People who read this also read...**
 
 <a href="http://www.ozekiphone.com/voip-javascript-example-on-making-and-accepting-voip-calls-745.html">JavaScript Examples</a><BR />
