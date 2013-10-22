@@ -23,7 +23,7 @@ After these steps, you will receive a notification in the form of Popup on your 
 
 
 Step 1: Generate Security Token for the authentication
-=========================================
+===
 
 In order to be able to see the created calls in the system, you have to get access from the PBX for your application. You can do this by generate a Security Token for your program and with that token you can connect to PBX.
 
