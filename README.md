@@ -203,3 +203,12 @@ We can see that when the Popup is not in the foreground, we create it, having up
 ![Alt text](http://www.ozekiphone.com/attachments/1150/DisplayPopup.png "An example popup, when 1001 calls the 5000")
 
 **Figure 3** - An example popup, when 1001 calls the 5000
+
+
+**Dig deeper!**
+**People who read this also read...**
+
+<a href="www.ozekiphone.com/voip-javascript-example-on-making-and-accepting-voip-calls-745.html">JavaScript Examples</a>
+<a href="www.ozekiphone.com/voip-javascript-api-806.html">JavaScript API</a>
+<a href="www.ozekiphone.com/voip-how-to-control-ozeki-pbx-using-http-api-238.html">HTTP API</a>
+<a href="http://www.ozekiphone.com/voip-quick-start-826.html">Quick starts with Ozeki APIs</a>
