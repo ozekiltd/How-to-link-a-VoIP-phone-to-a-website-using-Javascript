@@ -68,8 +68,7 @@ The other method for getting the needed Security Token is that you login to the 
 
 For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the PBX. Then choose the _GenerateSecurityToken_ Command, click on the _Test_ tab, then to the _Send request_ button!
 
-
-![alt tag](http://inside.ozekiphone.com/attachments/1150/SecurityToken.png)
+![Alt text](http://inside.ozekiphone.com/attachments/1150/SecurityToken.png "Generate Security Token with HTTP API Tester")
 
 **Figure 1**  - Generate Security Token with HTTP API Tester
 
