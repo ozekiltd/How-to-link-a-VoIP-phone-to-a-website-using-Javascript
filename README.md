@@ -1,5 +1,4 @@
-How to link a VoIP phone to a website using Ozeki Phone System XE Javascript
-======================================================
+=How to display an HTML popup window when my phone rings with Ozeki JavaScript API=
 
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
@@ -22,8 +21,7 @@ After these steps, you will receive a notification in the form of Popup on your 
 * Let’s see each step in details! *
 
 
-* Step 1: * Generate Security Token for the authentication
-======================================================
+==* Step 1: * Generate Security Token for the authentication==
 
 In order to be able to see the created calls in the system, you have to get access from the PBX for your application. You can do this by generate a Security Token for your program and with that token you can connect to PBX.
 
@@ -44,7 +42,7 @@ We can get a Security Token through HTTP API (if it is enabled), or we can gener
 To get a Security Token through HTTP API, you should send a simple HTTP request to the PBX and the needed token is going to be in the given response.
 	
 In the code example below you can see what request parameters should be sent to the PBX.
-{{{
+```
 
 Command=GenerateSecurityToken
 AuthXml=<?xml version="1.0"?>
@@ -52,13 +50,13 @@ AuthXml=<?xml version="1.0"?>
 	<AllowSessionModification>False</AllowSessionModification>
 </SecurityToken>
 
-}}}
+```
 * Code example 1 * - The original HTTP Request
 
 The specified url parameter list and the whole request is in the code below. You can send the request like you copy the url encoded text below to the headline of your browser. Of course you have to change the IP address to the address of the PBX here, too:
-{{{
+```
 http://ozekixepbx.ip:7780/?Command=GenerateSecurityToken&AuthXml=%3c%3fxml+version%3d%221.0%22%3f%3e%0d%0a%3cSecurityToken%3e%0d%0a%09%3cAllowSessionModification%3eTrue%3c%2fAllowSessionModification%3e%0d%0a%3c%2fSecurityToken%3e%0d%0a
-}}}
+```
 * Code example 2 * - Url encoded request
 
 On the summary page [http://www.ozekiphone.com/voip-http-commands-231.html below] you can get further information about the HTTP API and the commands of it.
@@ -77,12 +75,11 @@ For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the
 The generated Security Token can be found in the received response 
 between the _SecurityToken_ tags.
 
-* Step 2: * Connect to Ozeki Phone System XE through JavaScript API
-======================================================
+==* Step 2: * Connect to Ozeki Phone System XE through JavaScript API==
 
 As for the start create a simple HTML page where you refer a few scripts and JavaScript API, too. The created file has to be hosted and run on a Web-server, because it will result in an error if it is simply run on the file system (for 
 example from Windows Explorer). 
-{{{
+```
 <!DOCTYPE html>
 <!-- Important: This file has to be hosted on a web server (e.g. Apache, IIS etc.) -->
 <html>
@@ -98,7 +95,7 @@ example from Windows Explorer).
 <body>	
 </body>
 </html>
-}}}
+```
 * Code example 3 * - The basic HTML page that is going to be extended step by step.
 
 [http://code.google.com/ http://inside.ozekiphone.com/attachments/1150/IpAddress.png]
@@ -107,15 +104,15 @@ example from Windows Explorer).
 
 The row below is going to add reference to the JavaScript API via the running Ozeki Phone System XE. Please use your own IP address of your installed PBX instead of the *<font color="#FF0000">ozekixepbx.ip*</font>.
 
-{{{
+```
 <script type="text/javascript" src="http://ozekixepbx.ip:7777/WebphoneAPI"/>
-}}}
+```
 
 * Code example 4 * - Adding reference to the JavaScript API
 
 
 When you are ready with this, you can start to write the more interesting code parts. First we will see some variables and the connection. 
-{{{
+```
 <script type="text/javascript">
 	<!-- Your scripts will be here -->
 	//////// Use your settings //////////
@@ -129,7 +126,7 @@ When you are ready with this, you can start to write the more interesting code p
 		OzWebClient.connect(serverAddress, securityToken);
 	});
 </script>
-}}}
+```
 * Code example 5 * - Variables to be changed, and connection to the PBX
 
 The _numberToSubscribe_ should be a phone number. We take it as a basic that we are curious for the events of only this phone number. But in case of a need it is extendable, of course, and this requirement can even be left.  
@@ -138,11 +135,10 @@ After clarifying the role of the variables we can see the real connection. Befor
 event.  We can achieve this by subscribing the _connectionStateChanged_ method that is going to be mentioned later.  After this we should call the <a href="index.php?owpn=1013">OzWebClient.connect</a>
 method.  There is the address of the PBX and the requested Security Token.
 
-* Step 3: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event
-======================================================
+==* Step 4: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event==
 
 We have already initiated the connection request towards the server earlier, and we get the response from it in the subscribing _connectionStateChange_ method:
-{{{
+```
 function connectionStateChanged(info) {
 	if (info.State == ConnectionState.ACCESS_GRANTED)
 		OzWebClient.onSessionCreated (sessionCreated);
@@ -151,35 +147,34 @@ function connectionStateChanged(info) {
 	else
 		console.log("Please check the availability of the PBX!");
 }	
-}}}
+```
 * Code example 6 * - Subscribing function that gives back the response of the PBX to the login request.
 
 We can see that the _info.State_ parameter of the function carries the response of the server. If the login was successful, we subscribe for the _OzWebClient.onSessionCreated_ event. So when a new call is created in the PBX, the subscribing method will be called: 
-{{{
+```
 function sessionCreated(session) {
 	session.onSessionStateChanged(sessionStateChanged);
 }
-}}}
+```
 * Code example 7 * - Function that is called when a call is created.
 
 We subscribe for the changes of the call state in the function, so every time when it gets into another state (_Setup, Ringing, Incall, Completed_ etc. ) we receive a notification through the _sessionStateChanged_ method.
 
 
-* Step 4: * When the _sessionStateChanged_ event is triggered, show a Popup
-======================================================
+==* Step 4: * When the _sessionStateChanged_ event is triggered, show a Popup==
 
 As soon as the _onSessionStateChanged_ event is triggered, the function below is called: 
-{{{
+```
 function sessionStateChanged(session, sessionState ) {
 	if (session.caller == numberToSubscribe || session.callee == numberToSubscribe){
 		showPopUp(session.source, session.destination, session.direction, session.sessionState);
 	}
 }
-}}}
+```
 * Code example 8 * - Function called when the call state changes
 
 We get the actual session in the function, that carries the information about the actual call in its parameters. In the function above we check whether the phone number of the caller or the callee is the same as the phone number given by us (_numberToSubscribe_), and if it is, then we call the _showPopUp_ method with the parameters of the call: 
-{{{
+```
 function showPopUp(source, destination, direction, state){
     if ($("#NoficationPopup").length > 0){
             $("#lbCaller").html('Caller: ' + state);
@@ -202,7 +197,7 @@ function showPopUp(source, destination, direction, state){
                     $(this).dialog("destroy").remove();
     }});
 }
-}}}
+```
 * Code example 9 * - A function that executes the showing of a Popup.
 
 We can see that when the Popup is not in the foreground, we create it, having uploaded with the appropriate values. If we have already showed this dialogue earlier, we modify its values.
