@@ -99,7 +99,7 @@ example from Windows Explorer).
 ```
 **Code example 3** - The basic HTML page that is going to be extended step by step.
 
-![alt tag](http://inside.ozekiphone.com/attachments/1150/IpAddress.png)
+![Alt text](http://inside.ozekiphone.com/attachments/1150/IpAddress.png "Address of your PBX")
 
 **Figure 2**  - Address of your PBX
 
@@ -205,6 +205,6 @@ function showPopUp(source, destination, direction, state){
 
 We can see that when the Popup is not in the foreground, we create it, having uploaded with the appropriate values. If we have already showed this dialogue earlier, we modify its values.
 
-![alt tag](http://www.ozekiphone.com/attachments/1150/DisplayPopup.png)
+![Alt text](http://www.ozekiphone.com/attachments/1150/DisplayPopup.png "An example popup, when 1001 calls the 5000")
 
 **Figure 3** - An example popup, when 1001 calls the 5000
