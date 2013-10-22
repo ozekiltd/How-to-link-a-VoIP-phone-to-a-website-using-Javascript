@@ -138,7 +138,8 @@ After clarifying the role of the variables we can see the real connection. Befor
 event.  We can achieve this by subscribing the _connectionStateChanged_ method that is going to be mentioned later.  After this we should call the <a href="index.php?owpn=1013">OzWebClient.connect</a>
 method.  There is the address of the PBX and the requested Security Token.
 
-==* Step 4: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event==
+* Step 3: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event
+======================================================
 
 We have already initiated the connection request towards the server earlier, and we get the response from it in the subscribing _connectionStateChange_ method:
 {{{
@@ -164,7 +165,8 @@ function sessionCreated(session) {
 We subscribe for the changes of the call state in the function, so every time when it gets into another state (_Setup, Ringing, Incall, Completed_ etc. ) we receive a notification through the _sessionStateChanged_ method.
 
 
-==* Step 4: * When the _sessionStateChanged_ event is triggered, show a Popup==
+* Step 4: * When the _sessionStateChanged_ event is triggered, show a Popup
+======================================================
 
 As soon as the _onSessionStateChanged_ event is triggered, the function below is called: 
 {{{
