@@ -1,5 +1,4 @@
-How to link a VoIP phone to a website using Ozeki JavaScript API
-================================================================
+###How to link a VoIP phone to a website using Ozeki JavaScript API###
 
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
@@ -22,8 +21,8 @@ After these steps, you will receive a notification in the form of Popup on your 
 **Let’s see each step in details!**
 
 
-Step 1: Generate Security Token for the authentication
--------------------------------------------------------
+####Step 1: Generate Security Token for the authentication####
+
 
 In order to be able to see the created calls in the system, you have to get access from the PBX for your application. You can do this by generate a Security Token for your program and with that token you can connect to PBX.
 
@@ -39,8 +38,7 @@ You have the possibility to use a generated Security Token for the signin. In ca
 
 We can get a Security Token through HTTP API (if it is enabled), or we can generate it in the system after logging in with the _GenerateSecurityToken_ Command of the HTTP API Tester. 
 
-###Option 1###
-
+#####Option 1#####
 To get a Security Token through HTTP API, you should send a simple HTTP request to the PBX and the needed token is going to be in the given response.
 	
 In the code example below you can see what request parameters should be sent to the PBX.
@@ -63,7 +61,7 @@ http://ozekixepbx.ip:7780/?Command=GenerateSecurityToken&AuthXml=%3c%3fxml+versi
 
 On the summary page (http://www.ozekiphone.com/voip-http-commands-231.html) you can get further information about the HTTP API and the commands of it.
 
-###Option 2###
+#####Option 2#####
 The other method for getting the needed Security Token is that you login to the PBX and generate the token on your own with the aid of HTTP API Tester.
 
 For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the PBX. Then choose the _GenerateSecurityToken_ Command, click on the _Test_ tab, then to the _Send request_ button!
@@ -75,8 +73,7 @@ For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the
 The generated Security Token can be found in the received response 
 between the _SecurityToken_ tags.
 
-Step 2: Connect to Ozeki Phone System XE through JavaScript API
----------------------------------------------------------------
+####Step 2: Connect to Ozeki Phone System XE through JavaScript API####
 
 As for the start create a simple HTML page where you refer a few scripts and JavaScript API, too. The created file has to be hosted and run on a Web-server, because it will result in an error if it is simply run on the file system (for 
 example from Windows Explorer). 
@@ -132,12 +129,11 @@ When you are ready with this, you can start to write the more interesting code p
 
 The _numberToSubscribe_ should be a phone number. We take it as a basic that we are curious for the events of only this phone number. But in case of a need it is extendable, of course, and this requirement can even be left.  
 
-After clarifying the role of the variables we can see the real connection. Before we connect, we should subscribe for the <a href="index.php?owpn=1019">OzWebClient.onConnectionStateChanged</a>
-event.  We can achieve this by subscribing the _connectionStateChanged_ method that is going to be mentioned later.  After this we should call the <a href="index.php?owpn=1013">OzWebClient.connect</a>
+After clarifying the role of the variables we can see the real connection. Before we connect, we should subscribe for the <a href="www.ozekiphone.com/voip-onconstatechanged-1019.html">OzWebClient.onConnectionStateChanged</a>
+event.  We can achieve this by subscribing the _connectionStateChanged_ method that is going to be mentioned later.  After this we should call the <a href="http://www.ozekiphone.com/voip-connect-1013.html">OzWebClient.connect</a>
 method.  There is the address of the PBX and the requested Security Token.
 
-Step 3: Subscribe for the _sessionCreated_ and _sessionStateChanged_ event
----------------------------------------------------------------------------
+####Step 3: Subscribe for the _sessionCreated_ and _sessionStateChanged_ event####
 
 We have already initiated the connection request towards the server earlier, and we get the response from it in the subscribing _connectionStateChange_ method:
 ```
@@ -163,8 +159,7 @@ function sessionCreated(session) {
 We subscribe for the changes of the call state in the function, so every time when it gets into another state (_Setup, Ringing, Incall, Completed_ etc. ) we receive a notification through the _sessionStateChanged_ method.
 
 
-Step 4: When the _sessionStateChanged_ event is triggered, show a Popup
------------------------------------------------------------------------
+####Step 4: When the _sessionStateChanged_ event is triggered, show a Popup####
 
 As soon as the _onSessionStateChanged_ event is triggered, the function below is called: 
 ```
