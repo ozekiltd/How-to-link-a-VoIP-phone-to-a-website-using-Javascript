@@ -208,7 +208,7 @@ We can see that when the Popup is not in the foreground, we create it, having up
 **Dig deeper!**
 **People who read this also read...**
 
-<a href="www.ozekiphone.com/voip-javascript-example-on-making-and-accepting-voip-calls-745.html">JavaScript Examples</a><BR />
-<a href="www.ozekiphone.com/voip-javascript-api-806.html">JavaScript API</a><BR />
-<a href="www.ozekiphone.com/voip-how-to-control-ozeki-pbx-using-http-api-238.html">HTTP API</a><BR />
+<a href="http://www.ozekiphone.com/voip-javascript-example-on-making-and-accepting-voip-calls-745.html">JavaScript Examples</a><BR />
+<a href="http://www.ozekiphone.com/voip-javascript-api-806.html">JavaScript API</a><BR />
+<a href="http://www.ozekiphone.com/voip-how-to-control-ozeki-pbx-using-http-api-238.html">HTTP API</a><BR />
 <a href="http://www.ozekiphone.com/voip-quick-start-826.html">Quick starts with Ozeki APIs</a><BR />
