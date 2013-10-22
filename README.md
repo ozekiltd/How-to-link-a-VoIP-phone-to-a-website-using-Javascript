@@ -69,8 +69,7 @@ The other method for getting the needed Security Token is that you login to the 
 For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the PBX. Then choose the _GenerateSecurityToken_ Command, click on the _Test_ tab, then to the _Send request_ button!
 
 
-
-[http://code.google.com/ http://inside.ozekiphone.com/attachments/1150/SecurityToken.png]
+![alt tag](http://inside.ozekiphone.com/attachments/1150/SecurityToken.png)
 
 **Figure 1**  - Generate Security Token with HTTP API Tester
 
@@ -207,6 +206,6 @@ function showPopUp(source, destination, direction, state){
 
 We can see that when the Popup is not in the foreground, we create it, having uploaded with the appropriate values. If we have already showed this dialogue earlier, we modify its values.
 
-[http://code.google.com/ http://www.ozekiphone.com/attachments/1150/DisplayPopup.png]
+![alt tag](http://www.ozekiphone.com/attachments/1150/DisplayPopup.png)
 
 **Figure 3** - An example popup, when 1001 calls the 5000
