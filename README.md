@@ -101,7 +101,7 @@ example from Windows Explorer).
 ```
 **Code example 3** - The basic HTML page that is going to be extended step by step.
 
-[http://code.google.com/ http://inside.ozekiphone.com/attachments/1150/IpAddress.png]
+![alt tag](http://inside.ozekiphone.com/attachments/1150/IpAddress.png)
 
 **Figure 2**  - Address of your PBX
 
