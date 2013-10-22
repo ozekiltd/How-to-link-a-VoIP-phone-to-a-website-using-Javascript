@@ -1,4 +1,5 @@
-=How to display an HTML popup window when my phone rings with Ozeki JavaScript API=
+How to link a VoIP phone to a website using Ozeki JavaScript API
+=========================================
 
 Below you can find an excellent way on how to follow your calls easily using 
 Ozeki Phone System XE JavaScript API. By displaying an HTTP popup window, it is quite simple to receive notifications about the calls made through your own website.
@@ -21,7 +22,8 @@ After these steps, you will receive a notification in the form of Popup on your 
 * Let’s see each step in details! *
 
 
-==* Step 1: * Generate Security Token for the authentication==
+* Step 1: * Generate Security Token for the authentication
+=========================================
 
 In order to be able to see the created calls in the system, you have to get access from the PBX for your application. You can do this by generate a Security Token for your program and with that token you can connect to PBX.
 
@@ -75,7 +77,8 @@ For this, choose the _Productivity/HTTP API_ menu fom the menu line above in the
 The generated Security Token can be found in the received response 
 between the _SecurityToken_ tags.
 
-==* Step 2: * Connect to Ozeki Phone System XE through JavaScript API==
+* Step 2: * Connect to Ozeki Phone System XE through JavaScript API
+=========================================
 
 As for the start create a simple HTML page where you refer a few scripts and JavaScript API, too. The created file has to be hosted and run on a Web-server, because it will result in an error if it is simply run on the file system (for 
 example from Windows Explorer). 
@@ -135,7 +138,8 @@ After clarifying the role of the variables we can see the real connection. Befor
 event.  We can achieve this by subscribing the _connectionStateChanged_ method that is going to be mentioned later.  After this we should call the <a href="index.php?owpn=1013">OzWebClient.connect</a>
 method.  There is the address of the PBX and the requested Security Token.
 
-==* Step 4: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event==
+* Step 4: * Subscribe for the _sessionCreated_ and _sessionStateChanged_ event
+=========================================
 
 We have already initiated the connection request towards the server earlier, and we get the response from it in the subscribing _connectionStateChange_ method:
 ```
