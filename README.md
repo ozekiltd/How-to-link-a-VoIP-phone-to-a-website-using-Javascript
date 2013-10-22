@@ -1,4 +1,4 @@
-How to display an HTML popup window when my phone rings with Ozeki JavaScript API
+How to link a VoIP phone to a website using Ozeki Phone System XE Javascript
 ======================================================
 
 Below you can find an excellent way on how to follow your calls easily using 
