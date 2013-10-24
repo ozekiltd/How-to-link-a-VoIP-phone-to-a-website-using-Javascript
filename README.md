@@ -181,7 +181,7 @@ function showPopUp(source, destination, direction, state){
             $("#lbState").html('State: ' + state);
     }
     else 
-        $('<div id="NoficationPopup" title="' + direction + '">' +
+        $('<div id="NoficationPopup" title=\"' + direction + '\">' +
                 '<div align=left>' +
                     '<label id="lbCaller">Caller: '+source+'</label> <BR />'  +
                     '<label id="lbCallee">Callee: '+destination+'</label> <BR />' +
